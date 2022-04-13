@@ -2,6 +2,7 @@ import React, {useState, useEffect,useContext} from 'react';
 import {styles} from '../../LayoutStyle';
 import {Modal, Text, Pressable, View, TextInput} from 'react-native';
 import { MyContext } from '../../Context';
+
 const Layout = () => {
   const [text, setChangeText] = React.useState('');
 

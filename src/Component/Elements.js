@@ -7,6 +7,7 @@ import {
   Image,
 } from 'react-native';
 import React, {useEffect, useContext} from 'react';
+import {createStackNavigator} from '@react-navigation/stack'
 // import Layout from './src/Component/Layout';
 // import TodoItem from './src/Component/TodoItem';
 // import {styles} from '../../Appstyle';
@@ -16,7 +17,7 @@ import TodoItem from './TodoItem';
 import {styles} from '../../Appstyle';
 import {MyContext} from '../../Context';
 
-const Elements = () => {
+const Elements = ({navigation}) => {
   const {
     todo,
     modalVisible,
@@ -45,7 +46,7 @@ const Elements = () => {
     handleModal,
     handleEdit,
     handleCheck,
-    handleDelete, 
+    handleDelete,
   );
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const Elements = () => {
     };
     deleteCheck();
   }, [todo]);
-
+console.log(handleModal,"HLOOOOOOOOOOOOOOOOOOO");
   return (
     <View style={{flex: 1}}>
       <View style={styles.tasksWrapper}>
@@ -75,10 +76,12 @@ const Elements = () => {
             style={styles.image}
             source={require('../../Assests/Group.png')}
           />
+         
+
         </TouchableOpacity>
       </View>
-
-      <FlatList data={todo} renderItem={({item}) => <TodoItem item={item}/>} />
+       
+      <FlatList data={todo} renderItem={({item}) => <TodoItem Navigation={navigation} item={item}/>} />
 
       <Layout />
     </View>

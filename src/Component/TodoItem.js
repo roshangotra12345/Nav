@@ -8,8 +8,9 @@ import {
 import React, {useState, useEffect,useContext} from 'react';
 import {styles} from '../../TudoItemStyle';
 import { MyContext } from '../../Context';
+import Navigation from '../navigation/Navigation';
 
-const TodoItem = ({item}) => {
+const TodoItem = ({Navigation , item}) => {
   const [check, setCheck] = useState(false);
   const {
     key,
@@ -23,8 +24,9 @@ const TodoItem = ({item}) => {
   };
 
   const handleEdit = () => {
-    setSelected(true);
-    editModal(item);
+    Navigation.navigate("rosan ka ghar")
+    // setSelected(true);
+    // editModal(item);
   };
 
   useEffect(() => {
